@@ -1,0 +1,5 @@
+﻿  sort.c
+E:\WorkSpace\C\sort\ConsoleApplication1\ConsoleApplication1\sort.c(35,22): warning C4047: 'function': 'int *' differs in levels of indirection from 'int (*)[10000000]'
+E:\WorkSpace\C\sort\ConsoleApplication1\ConsoleApplication1\sort.c(35,8): warning C4024: 'swap': different types for formal and actual parameter 1
+E:\WorkSpace\C\sort\ConsoleApplication1\ConsoleApplication1\sort.c(122,6): warning C4101: 'i': unreferenced local variable
+  ConsoleApplication1.vcxproj -> E:\WorkSpace\C\sort\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
