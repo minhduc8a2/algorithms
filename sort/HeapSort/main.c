@@ -43,10 +43,10 @@ void pushDown(recordType *arr, int start, int end)
     int current = start;
     while (current <= (end - 1) / 2)
     {
-        if (current * 2 + 1 == end && arr[current].key < arr[end].key)
+        if (current * 2 + 1 == end)
         {
-
-            swap(&arr[current], &arr[end]);
+            if (arr[current].key < arr[end].key)
+                swap(&arr[current], &arr[end]);
             current = end;
         }
         else if (arr[current].key < arr[current * 2 + 1].key && arr[current * 2 + 1].key >= arr[current * 2 + 2].key)

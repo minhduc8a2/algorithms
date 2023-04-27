@@ -38,48 +38,46 @@ void readFile(recordType *arr, int *n)
     fclose(f);
     *n = i - 1;
 }
-
-keyType findPivot(recordType *arr, int l, int r)
+void pushDown(recordType *arr, int current, int end)
 {
-    int i = l;
-    keyType firstPivot = arr[l].key;
-    while (i <= r)
+
+    if (current > (end - 1) / 2)
+        return;
+
+    if (current * 2 + 1 == end)
     {
-        if (arr[i].key == firstPivot)
-            i++;
-        else
-            break;
+        if (arr[current].key > arr[end].key)
+            swap(&arr[current], &arr[end]);
+        return;
     }
-    if (i > r)
-        return -1;
-    if (arr[i].key >= firstPivot)
-        return firstPivot;
+    else if (arr[current].key > arr[current * 2 + 1].key && arr[current * 2 + 1].key <= arr[current * 2 + 2].key)
+    {
+        swap(&arr[current], &arr[current * 2 + 1]);
+        pushDown(arr, current * 2 + 1, end);
+    }
+    else if (arr[current].key > arr[current * 2 + 2].key && arr[current * 2 + 2].key < arr[current * 2 + 1].key)
+    {
+        swap(&arr[current * 2 + 2], &arr[current]);
+        pushDown(arr, current * 2 + 2, end);
+    }
     else
-        return arr[i].key;
+        return;
 }
-int partition(recordType *arr, int l, int r, keyType pivot)
+void heapSort(recordType *arr, int n)
 {
-    while (l < r)
+    int i;
+    if (n <= 1)
+        return;
+    for (i = (n - 2) / 2; i >= 0; i--)
     {
-        while (arr[l].key <= pivot && l <= r)
-            l++;
-        while (arr[r].key > pivot && l <= r)
-            r--;
-        if (l < r)
-            swap(&arr[l], &arr[r]);
+        pushDown(arr, i, n - 1);
     }
-    return l;
-}
-
-void quickSort(recordType *arr, int l, int r)
-{
-    keyType pivot = findPivot(arr, l, r);
-    if (pivot != -1)
+    for (i = n - 1; i >= 2; i--)
     {
-        int pivotIndex = partition(arr, l, r, pivot);
-        quickSort(arr, l, pivotIndex-1);
-        quickSort(arr, pivotIndex, r);
+        swap(&arr[0], &arr[i]);
+        pushDown(arr, 0, i - 1);
     }
+    swap(&arr[0], &arr[1]);
 }
 
 int main()
@@ -88,7 +86,7 @@ int main()
     int n;
     readFile(unsortedArray, &n);
     clock_t start = clock();
-    quickSort(unsortedArray, 0, n - 1);
+    heapSort(unsortedArray, n);
     clock_t end = clock();
     int i;
     for (i = 0; i < n; i++)
