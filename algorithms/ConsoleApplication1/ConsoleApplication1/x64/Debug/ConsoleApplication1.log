@@ -1,3 +1,6 @@
 ﻿  source.cpp
-E:\WorkSpace\C\algorithms\ConsoleApplication1\ConsoleApplication1\source.cpp(91,12): warning C4101: 'j': unreferenced local variable
-  ConsoleApplication1.vcxproj -> E:\WorkSpace\C\algorithms\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(703,5): error MSB6006: "CL.exe" exited with code 2.
+E:\WorkSpace\C\algorithms\ConsoleApplication1\ConsoleApplication1\source.cpp(58,9): warning C4101: 'i': unreferenced local variable
+E:\WorkSpace\C\algorithms\ConsoleApplication1\ConsoleApplication1\source.cpp(88,30): warning C4305: 'initializing': truncation from 'int' to 'float'
+E:\WorkSpace\C\algorithms\ConsoleApplication1\ConsoleApplication1\source.cpp(125,13): error C3861: 'copy': identifier not found
+E:\WorkSpace\C\algorithms\ConsoleApplication1\ConsoleApplication1\source.cpp(158,32): warning C4305: 'initializing': truncation from 'int' to 'float'

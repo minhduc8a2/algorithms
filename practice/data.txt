@@ -1,5 +1,5 @@
 37
-15 30 Gao Mot Bui
-10 25 Nep cai hoa vang
-2 2 Gao nang huong
-4 6 Gao tai nguyen
+15 30 100 A- Gao Mot bui
+10 25 100 B- Nep cai hoa vang
+2   2 100 C- Gao nang huong
+4   6 100 D- Gao tai nguyen
